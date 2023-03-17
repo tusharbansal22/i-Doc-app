@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:i_doc_app/constants.dart';
 import 'package:i_doc_app/widgets/idocfield.dart';
 
+import '../widgets/buttons.dart';
+
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
@@ -27,7 +29,9 @@ class _LoginState extends State<Login> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.arrow_back),
+                      GestureDetector(child: Icon(Icons.arrow_back) ,onTap: (){
+                        Navigator.pushNamed(context, '/home');
+                      },),
                       Text('LOGIN', style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24,letterSpacing: 4),),
                     ],
                   ),
@@ -38,11 +42,11 @@ class _LoginState extends State<Login> {
             SizedBox(height: 40,),
             Column(
               children: [
-                iDocField(text: email),
+                iDocField(text: email , label: "Email",),
                 SizedBox(
                   height: 20,
                 ),
-                iDocField(text: password,isPassword: true,),
+                iDocField(text: password,isPassword: true, label: "Password",),
                 GestureDetector(
                   onTap: () {},
                   child: Padding(
@@ -59,22 +63,8 @@ class _LoginState extends State<Login> {
                 ),
               ],
             ),
-
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  elevation: 5.0,
-                  minimumSize: Size(230, 50),
-                  textStyle:
-                  TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30))),
-              onPressed: () {},
-              child: Text(
-                'Login',
-                style: TextStyle(letterSpacing: 2),
-              ),
-            ),
+            SizedBox(height: 100,),
+            BlackButton(buttonText: 'LOGIN',onpress: (){}).buildBlackButton(),
             GestureDetector(
               onTap: () {},
               child: Text('Doctor Login',style: TextStyle(decoration: TextDecoration.underline),),

@@ -51,7 +51,7 @@ class InitScreen extends StatelessWidget {
               SizedBox(
                 height: 250,
               ),
-              BlackButton(buttonText: 'REGISTER').buildBlackButton(),
+              BlackButton(buttonText: 'REGISTER',onpress: (){Navigator.pushNamed(context, '/register');}).buildBlackButton(),
               SizedBox(
                 height: 7,
               ),

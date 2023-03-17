@@ -4,7 +4,8 @@ import 'package:i_doc_app/constants.dart';
 class iDocField extends StatefulWidget {
   String text="";
   bool isPassword=false;
-  iDocField({required this.text , this.isPassword=false});
+  String label="";
+  iDocField({required this.text , this.isPassword=false , required this.label});
   @override
   State<iDocField> createState() => _iDocFieldState();
 }
@@ -18,7 +19,15 @@ class _iDocFieldState extends State<iDocField> {
       decoration: kTextInputDecoration,
       child: TextField(
         obscureText: widget.isPassword,
-        decoration: widget.isPassword?kPasswordFieldDecoration:kInputFieldDecoration,
+        decoration: InputDecoration(
+          labelText: widget.label,
+          labelStyle: TextStyle(color: Colors.black54),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
+        ),
         onChanged: (change) {
           setState(() {
             widget.text = change;

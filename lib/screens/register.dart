@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_doc_app/widgets/buttons.dart';
 
 import '../widgets/idocfield.dart';
 
@@ -28,8 +29,10 @@ class _RegisterState extends State<Register> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.arrow_back),
-                      Text('LOGIN', style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24,letterSpacing: 4),),
+                      GestureDetector(child: Icon(Icons.arrow_back),onTap: (){
+                        Navigator.pushNamed(context, '/home');
+                      },),
+                      Text('REGISTER', style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24,letterSpacing: 4),),
                     ],
                   ),
                   Column(children:[ Image.asset('assets/images/logo.png',width: 90,),Text("i-Doc",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24),)]),
@@ -39,47 +42,20 @@ class _RegisterState extends State<Register> {
             SizedBox(height: 40,),
             Column(
               children: [
-                iDocField(text: name),
+                iDocField(text: name, label: "Name",),
                 SizedBox(
                   height: 20,
                 ),
-                iDocField(text: email),
+                iDocField(text: email , label: "Email",),
                 SizedBox(
                   height: 20,
                 ),
-                iDocField(text: password,isPassword: true,),
-                GestureDetector(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                          ),
-                        )),
-                  ),
-                ),
+                iDocField(text: password,isPassword: true, label: "Password",),
               ],
             ),
+            SizedBox(height: 100,),
 
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  elevation: 5.0,
-                  minimumSize: Size(230, 50),
-                  textStyle:
-                  TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30))),
-              onPressed: () {},
-              child: Text(
-                'Register',
-                style: TextStyle(letterSpacing: 2),
-              ),
-            ),
+            BlackButton(buttonText: 'REGISTER',onpress: (){}).buildBlackButton()
 
           ],
         ),
