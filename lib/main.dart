@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:i_doc_app/screens/login.dart';
+import 'package:i_doc_app/screens/register.dart';
 
 import 'screens/init_screen.dart';
 
@@ -13,6 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        initialRoute: '/home',
+        routes: {
+          '/login': (context) => Login(),
+          '/register': (context) => Register(),
+          '/home': (context) => InitScreen()
+        },
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
