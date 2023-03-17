@@ -3,14 +3,14 @@ import 'package:i_doc_app/widgets/idocfield.dart';
 
 import '../widgets/buttons.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class DocLogin extends StatefulWidget {
+  const DocLogin({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<DocLogin> createState() => _DocLoginState();
 }
 
-class _LoginState extends State<Login> {
+class _DocLoginState extends State<DocLogin> {
   String email = "";
   String password = "";
   @override
@@ -32,11 +32,11 @@ class _LoginState extends State<Login> {
                         Navigator.pushNamed(context, '/home');
                       },),
                       Text(
-                        'LOGIN',
+                        'DOCTOR LOGIN',
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 24,
-                            letterSpacing: 4),
+                            letterSpacing: 2),
                       ),
 
                     ],
@@ -49,7 +49,7 @@ class _LoginState extends State<Login> {
                     Text(
                       "i-Doc",
                       style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
+                      TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
                     ),
                   ]),
                 ],
@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
             ),
             Column(
               children: [
-                iDocField(text: email , label: "Email",),
+                iDocField(text: email , label: "Doctor ID",),
                 SizedBox(
                   height: 20,
                 ),
@@ -87,15 +87,6 @@ class _LoginState extends State<Login> {
             SizedBox(height: 100,),
             BlackButton(buttonText: 'LOGIN',onpress: (){}).buildBlackButton(),
 
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/doclog');
-              },
-              child: Text(
-                'Doctor Login',
-                style: TextStyle(decoration: TextDecoration.underline),
-              ),
-            ),
           ],
         ),
       ),
