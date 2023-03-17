@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:i_doc_app/widgets/buttons.dart';
+
+import 'login.dart';
 
 class InitScreen extends StatelessWidget {
   const InitScreen({Key? key}) : super(key: key);
@@ -48,28 +51,17 @@ class InitScreen extends StatelessWidget {
               SizedBox(
                 height: 250,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    elevation: 5.0,
-                    minimumSize: Size(230, 50),
-                    textStyle:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30))),
-                onPressed: () {},
-                child: Text(
-                  'REGISTER',
-                  style: TextStyle(letterSpacing: 2),
-                ),
-              ),
+              BlackButton(buttonText: 'REGISTER').buildBlackButton(),
               SizedBox(
                 height: 7,
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Text("Already Registered?"),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Login()));
+                    },
                     child: Text(
                       'LOGIN',
                       style: TextStyle(
