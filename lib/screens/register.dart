@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
 import '../widgets/idocfield.dart';
 
 class Register extends StatefulWidget {
@@ -10,7 +11,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  String name="";
+  String name = "";
   String email = "";
   String password = "";
   @override
@@ -29,14 +30,32 @@ class _RegisterState extends State<Register> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(Icons.arrow_back),
-                      Text('LOGIN', style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24,letterSpacing: 4),),
+                      Text(
+                        'Registration',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 24,
+                            letterSpacing: 2),
+                      ),
                     ],
                   ),
-                  Column(children:[ Image.asset('assets/images/logo.png',width: 90,),Text("i-Doc",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24),)]),
+                  Column(children: [
+                    Image.asset(
+                      'assets/images/logo.png',
+                      width: 90,
+                    ),
+                    Text(
+                      "i-Doc",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
+                    )
+                  ]),
                 ],
               ),
             ),
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Column(
               children: [
                 iDocField(text: name),
@@ -47,7 +66,10 @@ class _RegisterState extends State<Register> {
                 SizedBox(
                   height: 20,
                 ),
-                iDocField(text: password,isPassword: true,),
+                iDocField(
+                  text: password,
+                  isPassword: true,
+                ),
                 GestureDetector(
                   onTap: () {},
                   child: Padding(
@@ -64,23 +86,16 @@ class _RegisterState extends State<Register> {
                 ),
               ],
             ),
-
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  elevation: 5.0,
-                  minimumSize: Size(230, 50),
-                  textStyle:
-                  TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30))),
-              onPressed: () {},
+              style: kBlackButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/register');
+              },
               child: Text(
-                'Register',
+                'REGISTER',
                 style: TextStyle(letterSpacing: 2),
               ),
             ),
-
           ],
         ),
       ),

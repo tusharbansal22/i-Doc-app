@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_doc_app/widgets/idocfield.dart';
 
-import '../widgets/buttons.dart';
+import '../constants.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -85,7 +85,16 @@ class _LoginState extends State<Login> {
                 ),
               ],
             ),
-            BlackButton(buttonText: 'LOGIN').buildBlackButton(),
+            ElevatedButton(
+              style: kBlackButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/register');
+              },
+              child: Text(
+                'LOGIN',
+                style: TextStyle(letterSpacing: 2),
+              ),
+            ),
             GestureDetector(
               onTap: () {},
               child: Text(
