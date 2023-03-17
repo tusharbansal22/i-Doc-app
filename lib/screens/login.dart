@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:i_doc_app/constants.dart';
 import 'package:i_doc_app/widgets/idocfield.dart';
 
 import '../widgets/buttons.dart';
@@ -32,21 +31,42 @@ class _LoginState extends State<Login> {
                       GestureDetector(child: Icon(Icons.arrow_back) ,onTap: (){
                         Navigator.pushNamed(context, '/home');
                       },),
-                      Text('LOGIN', style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24,letterSpacing: 4),),
+                      Text(
+                        'LOGIN',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 24,
+                            letterSpacing: 4),
+                      ),
+
                     ],
                   ),
-                  Column(children:[ Image.asset('assets/images/logo.png',width: 90,),Text("i-Doc",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24),)]),
+                  Column(children: [
+                    Image.asset(
+                      'assets/images/logo.png',
+                      width: 90,
+                    ),
+                    Text(
+                      "i-Doc",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
+                    ),
+                  ]),
                 ],
               ),
             ),
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Column(
               children: [
                 iDocField(text: email , label: "Email",),
                 SizedBox(
                   height: 20,
                 ),
+
                 iDocField(text: password,isPassword: true, label: "Password",),
+
                 GestureDetector(
                   onTap: () {},
                   child: Padding(
@@ -63,11 +83,16 @@ class _LoginState extends State<Login> {
                 ),
               ],
             ),
+
             SizedBox(height: 100,),
             BlackButton(buttonText: 'LOGIN',onpress: (){}).buildBlackButton(),
+
             GestureDetector(
               onTap: () {},
-              child: Text('Doctor Login',style: TextStyle(decoration: TextDecoration.underline),),
+              child: Text(
+                'Doctor Login',
+                style: TextStyle(decoration: TextDecoration.underline),
+              ),
             ),
           ],
         ),
@@ -75,6 +100,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-
-
-
