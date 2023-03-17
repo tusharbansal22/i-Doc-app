@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_doc_app/screens/doctorlog.dart';
 import 'package:i_doc_app/screens/login.dart';
 import 'package:i_doc_app/screens/register.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/home',
         routes: {
           '/login': (context) => Login(),
+          '/doclog': (context) => DocLogin(),
           '/register': (context) => Register(),
           '/home': (context) => InitScreen()
         },
