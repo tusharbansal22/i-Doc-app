@@ -14,6 +14,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
 
+
     return Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,20 +22,9 @@ class _LoginState extends State<Login> {
              Container(
                 width: 330,
                 padding: kTextInputPadding,
-                // color: kTextInputColor,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                ),
+                decoration: kTextInputDecoration,
                 child: TextField(
-                  decoration: InputDecoration(
-                    labelText: "Email",
-                    labelStyle: TextStyle(color: Colors.black54),
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    errorBorder: InputBorder.none,
-                    disabledBorder: InputBorder.none,
-                  ),
+                  decoration: kInputFieldDecoration,
                   onChanged: (change){
                     setState(() {
                       email = change;
@@ -42,14 +32,20 @@ class _LoginState extends State<Login> {
                   },
                 ),
               ),
-              TextField(
-
-                obscureText: true,
-                onChanged: (change){
-                  setState(() {
-                    password = change;
-                  });
-                },
+              SizedBox(height: 20,),
+              Container(
+                width: 330,
+                padding: kTextInputPadding,
+                decoration: kTextInputDecoration,
+                child: TextField(
+                  obscureText: true,
+                  decoration: kPasswordFieldDecoration,
+                  onChanged: (change){
+                    setState(() {
+                      password = change;
+                    });
+                  },
+                ),
               ),
               GestureDetector(onTap: (){},child: Text('Forgot Password?'),),
               TextButton(onPressed: (){}, child: Container(
