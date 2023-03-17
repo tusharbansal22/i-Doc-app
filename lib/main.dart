@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_doc_app/screens/login.dart';
 
-import 'init_screen.dart';
+import 'screens/init_screen.dart';
 
 void main() {
   runApp(const MyApp());
