@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.i_doc_app">
+    package="com.adismort.i_doc_app">
    <application
         android:label="i_doc_app"
         android:name="${applicationName}"

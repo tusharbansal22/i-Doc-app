@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:i_doc_app/constants.dart';
 import 'package:i_doc_app/widgets/idocfield.dart';
+
+import '../widgets/buttons.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -27,22 +28,47 @@ class _LoginState extends State<Login> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.arrow_back),
-                      Text('LOGIN', style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24,letterSpacing: 4),),
+                      GestureDetector(
+                          onLongPress: () {
+                            Navigator.pop;
+                          },
+                          child: Icon(Icons.arrow_back)),
+                      Text(
+                        'LOGIN',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 24,
+                            letterSpacing: 4),
+                      ),
                     ],
                   ),
-                  Column(children:[ Image.asset('assets/images/logo.png',width: 90,),Text("i-Doc",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 24),)]),
+                  Column(children: [
+                    Image.asset(
+                      'assets/images/logo.png',
+                      width: 90,
+                    ),
+                    Text(
+                      "i-Doc",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
+                    ),
+                  ]),
                 ],
               ),
             ),
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Column(
               children: [
                 iDocField(text: email),
                 SizedBox(
                   height: 20,
                 ),
-                iDocField(text: password,isPassword: true,),
+                iDocField(
+                  text: password,
+                  isPassword: true,
+                ),
                 GestureDetector(
                   onTap: () {},
                   child: Padding(
@@ -59,25 +85,13 @@ class _LoginState extends State<Login> {
                 ),
               ],
             ),
-
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  elevation: 5.0,
-                  minimumSize: Size(230, 50),
-                  textStyle:
-                  TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30))),
-              onPressed: () {},
-              child: Text(
-                'Login',
-                style: TextStyle(letterSpacing: 2),
-              ),
-            ),
+            BlackButton(buttonText: 'LOGIN').buildBlackButton(),
             GestureDetector(
               onTap: () {},
-              child: Text('Doctor Login',style: TextStyle(decoration: TextDecoration.underline),),
+              child: Text(
+                'Doctor Login',
+                style: TextStyle(decoration: TextDecoration.underline),
+              ),
             ),
           ],
         ),
@@ -85,6 +99,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-
-
-

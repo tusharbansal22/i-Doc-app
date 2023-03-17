@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "828221342180",
+    "project_id": "i-doc-app-d3638",
+    "storage_bucket": "i-doc-app-d3638.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828221342180:android:9abe6ff0b11f8f3f3587f1",
+        "android_client_info": {
+          "package_name": "com.adismort.i_doc_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828221342180-86drrr7eu4613hfslaufav0stdhugleu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKpk0-DZnH-oWLMhsrSTDYEFOD9gCvLAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828221342180-86drrr7eu4613hfslaufav0stdhugleu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
