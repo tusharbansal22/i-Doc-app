@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_doc_app/widgets/idocfield.dart';
 
-import '../constants.dart';
+import '../widgets/buttons.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -29,10 +29,11 @@ class _LoginState extends State<Login> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GestureDetector(
-                          onLongPress: () {
-                            Navigator.pop;
-                          },
-                          child: Icon(Icons.arrow_back)),
+                        child: Icon(Icons.arrow_back),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/home');
+                        },
+                      ),
                       Text(
                         'LOGIN',
                         style: TextStyle(
@@ -61,13 +62,17 @@ class _LoginState extends State<Login> {
             ),
             Column(
               children: [
-                iDocField(text: email),
+                iDocField(
+                  text: email,
+                  label: "Email",
+                ),
                 SizedBox(
                   height: 20,
                 ),
                 iDocField(
                   text: password,
                   isPassword: true,
+                  label: "Password",
                 ),
                 GestureDetector(
                   onTap: () {},
@@ -85,16 +90,10 @@ class _LoginState extends State<Login> {
                 ),
               ],
             ),
-            ElevatedButton(
-              style: kBlackButton,
-              onPressed: () {
-                Navigator.pushNamed(context, '/register');
-              },
-              child: Text(
-                'LOGIN',
-                style: TextStyle(letterSpacing: 2),
-              ),
+            SizedBox(
+              height: 100,
             ),
+            BlackButton(buttonText: 'LOGIN', onpress: () {}).buildBlackButton(),
             GestureDetector(
               onTap: () {},
               child: Text(

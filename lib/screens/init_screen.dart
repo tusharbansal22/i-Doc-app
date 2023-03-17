@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import '../widgets/buttons.dart';
 
 class InitScreen extends StatelessWidget {
   const InitScreen({Key? key}) : super(key: key);
@@ -50,16 +50,11 @@ class InitScreen extends StatelessWidget {
               SizedBox(
                 height: 250,
               ),
-              ElevatedButton(
-                style: kBlackButton,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/register');
-                },
-                child: Text(
-                  'REGISTER',
-                  style: TextStyle(letterSpacing: 2),
-                ),
-              ),
+              BlackButton(
+                  buttonText: 'REGISTER',
+                  onpress: () {
+                    Navigator.pushNamed(context, '/register');
+                  }).buildBlackButton(),
               SizedBox(
                 height: 7,
               ),

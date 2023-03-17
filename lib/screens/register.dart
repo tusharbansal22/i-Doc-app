@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:i_doc_app/widgets/buttons.dart';
 
-import '../constants.dart';
 import '../widgets/idocfield.dart';
 
 class Register extends StatefulWidget {
@@ -29,13 +29,18 @@ class _RegisterState extends State<Register> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.arrow_back),
+                      GestureDetector(
+                        child: Icon(Icons.arrow_back),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/home');
+                        },
+                      ),
                       Text(
-                        'Registration',
+                        'REGISTER',
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 24,
-                            letterSpacing: 2),
+                            letterSpacing: 4),
                       ),
                     ],
                   ),
@@ -58,44 +63,32 @@ class _RegisterState extends State<Register> {
             ),
             Column(
               children: [
-                iDocField(text: name),
+                iDocField(
+                  text: name,
+                  label: "Name",
+                ),
                 SizedBox(
                   height: 20,
                 ),
-                iDocField(text: email),
+                iDocField(
+                  text: email,
+                  label: "Email",
+                ),
                 SizedBox(
                   height: 20,
                 ),
                 iDocField(
                   text: password,
                   isPassword: true,
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                          ),
-                        )),
-                  ),
+                  label: "Password",
                 ),
               ],
             ),
-            ElevatedButton(
-              style: kBlackButton,
-              onPressed: () {
-                Navigator.pushNamed(context, '/register');
-              },
-              child: Text(
-                'REGISTER',
-                style: TextStyle(letterSpacing: 2),
-              ),
+            SizedBox(
+              height: 100,
             ),
+            BlackButton(buttonText: 'REGISTER', onpress: () {})
+                .buildBlackButton()
           ],
         ),
       ),
