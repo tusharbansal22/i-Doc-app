@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:i_doc_app/constants.dart';
+import 'package:i_doc_app/widgets/idocfield.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -37,36 +38,11 @@ class _LoginState extends State<Login> {
             SizedBox(height: 40,),
             Column(
               children: [
-                Container(
-                  width: 330,
-                  padding: kTextInputPadding,
-                  decoration: kTextInputDecoration,
-                  child: TextField(
-                    decoration: kInputFieldDecoration,
-                    onChanged: (change) {
-                      setState(() {
-                        email = change;
-                      });
-                    },
-                  ),
-                ),
+                iDocField(text: email),
                 SizedBox(
                   height: 20,
                 ),
-                Container(
-                  width: 330,
-                  padding: kTextInputPadding,
-                  decoration: kTextInputDecoration,
-                  child: TextField(
-                    obscureText: true,
-                    decoration: kPasswordFieldDecoration,
-                    onChanged: (change) {
-                      setState(() {
-                        password = change;
-                      });
-                    },
-                  ),
-                ),
+                iDocField(text: password,isPassword: true,),
                 GestureDetector(
                   onTap: () {},
                   child: Padding(
@@ -109,3 +85,6 @@ class _LoginState extends State<Login> {
     );
   }
 }
+
+
+
