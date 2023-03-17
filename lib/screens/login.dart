@@ -77,7 +77,8 @@ class _LoginState extends State<Login> {
                 GestureDetector(
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 33.0, vertical: 10),
                     child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
@@ -91,7 +92,7 @@ class _LoginState extends State<Login> {
               ],
             ),
             SizedBox(
-              height: 100,
+              height: 80,
             ),
             BlackButton(buttonText: 'LOGIN', onpress: () {}).buildBlackButton(),
             GestureDetector(
