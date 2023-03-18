@@ -1,3 +1,3 @@
-# i_doc_app
+# i_Doc_app
 
-This is the i-doc app for the Google Solution Challenge 2023.
+This is the i-Doc app for the Google Solution Challenge 2023.
