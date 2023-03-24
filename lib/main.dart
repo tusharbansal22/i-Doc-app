@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_doc_app/screens/chat.dart';
 import 'package:i_doc_app/screens/dashboard.dart';
 import 'package:i_doc_app/screens/doctorlog.dart';
 import 'package:i_doc_app/screens/login.dart';
@@ -45,7 +46,8 @@ class MyApp extends StatelessWidget {
           '/doclog': (context) => DocLogin(),
           '/register': (context) => Register(),
           '/home': (context) => InitScreen(),
-          '/dashboard': (context)=> Dashboard()
+          '/dashboard': (context)=> Dashboard(),
+          '/chat': (context)=> ChatScreen()
         },
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,

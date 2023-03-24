@@ -13,7 +13,12 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          children: [Text('Dashboard')],
+          children: [Text('Dashboard'),
+          ElevatedButton(onPressed: (){
+              Navigator.pushNamed(context, '/chat');
+          }, child: Container(
+            child: Text('Chat with us'),
+          ))],
         ),
       ),
     );
