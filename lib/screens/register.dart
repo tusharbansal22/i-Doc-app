@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:i_doc_app/widgets/buttons.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../widgets/idocfield.dart';
 
 class Register extends StatefulWidget {
@@ -64,6 +64,11 @@ class _RegisterState extends State<Register> {
             Column(
               children: [
                 iDocField(
+                  onchange: (change){
+                    setState(() {
+                      name=change;
+                    });
+                  },
                   text: name,
                   label: "Name",
                 ),
@@ -71,6 +76,11 @@ class _RegisterState extends State<Register> {
                   height: 20,
                 ),
                 iDocField(
+                  onchange: (change){
+                    setState(() {
+                      email=change;
+                    });
+                  },
                   text: email,
                   label: "Email",
                 ),
@@ -78,6 +88,11 @@ class _RegisterState extends State<Register> {
                   height: 20,
                 ),
                 iDocField(
+                  onchange: (change){
+                    setState(() {
+                      password=change;
+                    });
+                  },
                   text: password,
                   isPassword: true,
                   label: "Password",
@@ -87,7 +102,16 @@ class _RegisterState extends State<Register> {
             SizedBox(
               height: 100,
             ),
-            BlackButton(buttonText: 'REGISTER', onpress: () {})
+            BlackButton(buttonText: 'REGISTER', onpress: () async {
+              print(email);
+              print(password);
+              await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: email,
+                    password: password
+                );
+              Navigator.pushNamed(context, '/dashboard');
+
+            })
                 .buildBlackButton()
           ],
         ),

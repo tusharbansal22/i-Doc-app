@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:i_doc_app/widgets/idocfield.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../widgets/buttons.dart';
 
 class DocLogin extends StatefulWidget {
@@ -60,12 +60,22 @@ class _DocLoginState extends State<DocLogin> {
             ),
             Column(
               children: [
-                iDocField(text: email , label: "Doctor ID",),
+                iDocField(
+                  onchange: (change){
+                    setState(() {
+                      email=change;
+                    });
+                  },text: email , label: "Doctor ID",),
                 SizedBox(
                   height: 20,
                 ),
 
-                iDocField(text: password,isPassword: true, label: "Password",),
+                iDocField(
+                  onchange: (change){
+                    setState(() {
+                      password=change;
+                    });
+                  },text: password,isPassword: true, label: "Password",),
 
                 GestureDetector(
                   onTap: () {},
@@ -85,7 +95,21 @@ class _DocLoginState extends State<DocLogin> {
             ),
 
             SizedBox(height: 100,),
-            BlackButton(buttonText: 'LOGIN',onpress: (){}).buildBlackButton(),
+            BlackButton(buttonText: 'LOGIN',onpress: () async{
+              try {
+                final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: email,
+                    password: password
+                );
+                Navigator.pushNamed(context, '/dashboard');
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'user-not-found') {
+                  print('No user found for that email.');
+                } else if (e.code == 'wrong-password') {
+                  print('Wrong password provided for that user.');
+                }
+              }
+            }).buildBlackButton(),
 
           ],
         ),

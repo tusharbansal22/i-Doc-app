@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:i_doc_app/widgets/idocfield.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../widgets/buttons.dart';
 
 class Login extends StatefulWidget {
@@ -29,12 +29,12 @@ class _LoginState extends State<Login> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GestureDetector(
-                        child: Icon(Icons.arrow_back),
+                        child: const Icon(Icons.arrow_back),
                         onTap: () {
                           Navigator.pushNamed(context, '/home');
                         },
                       ),
-                      Text(
+                      const Text(
                         'LOGIN',
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
@@ -48,7 +48,7 @@ class _LoginState extends State<Login> {
                       'assets/images/logo.png',
                       width: 90,
                     ),
-                    Text(
+                    const Text(
                       "i-Doc",
                       style:
                           TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
@@ -57,27 +57,37 @@ class _LoginState extends State<Login> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Column(
               children: [
                 iDocField(
+                  onchange: (change){
+                    setState(() {
+                      email=change;
+                    });
+                  },
                   text: email,
                   label: "Email",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 iDocField(
+                  onchange: (change){
+                    setState(() {
+                      password=change;
+                    });
+                  },
                   text: password,
                   isPassword: true,
                   label: "Password",
                 ),
                 GestureDetector(
                   onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(
                         horizontal: 33.0, vertical: 10),
                     child: Align(
                         alignment: Alignment.topLeft,
@@ -91,15 +101,29 @@ class _LoginState extends State<Login> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
-            BlackButton(buttonText: 'LOGIN', onpress: () {}).buildBlackButton(),
+            BlackButton(buttonText: 'LOGIN', onpress: () async {
+              try {
+                final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: email,
+                    password: password
+                );
+                Navigator.pushNamed(context, '/dashboard');
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'user-not-found') {
+                  print('No user found for that email.');
+                } else if (e.code == 'wrong-password') {
+                  print('Wrong password provided for that user.');
+                }
+              }
+            }).buildBlackButton(),
             GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, '/doclog');
               },
-              child: Text(
+              child: const Text(
                 'Doctor Login',
                 style: TextStyle(decoration: TextDecoration.underline),
               ),

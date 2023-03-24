@@ -5,7 +5,8 @@ class iDocField extends StatefulWidget {
   String text="";
   bool isPassword=false;
   String label="";
-  iDocField({required this.text , this.isPassword=false , required this.label});
+  Function onchange;
+  iDocField({required this.text , this.isPassword=false , required this.label, required this.onchange});
   @override
   State<iDocField> createState() => _iDocFieldState();
 }
@@ -29,10 +30,9 @@ class _iDocFieldState extends State<iDocField> {
           disabledBorder: InputBorder.none,
         ),
         onChanged: (change) {
-          setState(() {
-            widget.text = change;
-          });
-        },
+          widget.onchange(change);
+        }
+
       ),
     );
   }
