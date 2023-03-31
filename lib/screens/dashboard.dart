@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/buttons.dart';
+import 'curlocation.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -38,7 +39,11 @@ class _DashboardState extends State<Dashboard> {
               BlackButton(buttonText: 'Check your eye', onpress: (){})
                   .buildBlackButton(),
               SizedBox(height: 16,),
-              BlackButton(buttonText: 'Nearby eye hospitals', onpress: (){})
+              BlackButton(buttonText: 'Nearby eye hospitals', onpress: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                  return const CurrentLocationScreen();
+                }));
+              })
                   .buildBlackButton(),
               SizedBox(height: 100,),
               Text('Stats',style: TextStyle(fontSize: 24,fontWeight: FontWeight.w700),),
