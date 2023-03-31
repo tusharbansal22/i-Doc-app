@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:i_doc_app/screens/chat.dart';
+import 'package:i_doc_app/screens/curlocation.dart';
 import 'package:i_doc_app/screens/dashboard.dart';
 import 'package:i_doc_app/screens/doctorlog.dart';
 import 'package:i_doc_app/screens/login.dart';
+import 'package:i_doc_app/screens/nearby_places.dart';
 import 'package:i_doc_app/screens/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -47,7 +49,9 @@ class MyApp extends StatelessWidget {
           '/register': (context) => Register(),
           '/home': (context) => InitScreen(),
           '/dashboard': (context)=> Dashboard(),
-          '/chat': (context)=> ChatScreen()
+          '/chat': (context)=> ChatScreen(),
+          '/loc':(context)=>CurrentLocationScreen(),
+          '/nearbyplaces':(context)=>NearbyPlaces()
         },
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
