@@ -15,12 +15,7 @@ class _RegisterState extends State<Register> {
   String name = "";
   String email = "";
   String password = "";
-  GoogleSignIn _googleSignIn = GoogleSignIn(
-    scopes: [
-      'email',
-      'https://www.googleapis.com/auth/contacts.readonly',
-    ],
-  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,25 +101,7 @@ class _RegisterState extends State<Register> {
                 ),
               ],
             ),
-            TextButton(onPressed: ()async{
-              final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-              // Obtain the auth details from the request
-              final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-
-              // Create a new credential
-              final credential = GoogleAuthProvider.credential(
-                accessToken: googleAuth?.accessToken,
-                idToken: googleAuth?.idToken,
-              );
-
-              // Once signed in, return the UserCredential
-              await FirebaseAuth.instance.signInWithCredential(credential);
-              Navigator.pushNamed(context, '/dashboard');
-
-            }, child: Container(
-              child: Text('Login with Google'),
-            )),
             SizedBox(
               height: 100,
             ),
